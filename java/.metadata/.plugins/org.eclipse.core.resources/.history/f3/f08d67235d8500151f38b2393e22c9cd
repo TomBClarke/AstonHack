@@ -1,0 +1,7 @@
+package com.astonhack.chat.server;
+
+public class Server {
+	public Server() {
+		
+	}
+}
