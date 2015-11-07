@@ -1,0 +1,12 @@
+#messages {
+    height: 60%;
+}
+
+#bottompane {
+    position: fixed;
+    bottom: 0;
+}
+
+#input {
+    width: 100%;
+}
