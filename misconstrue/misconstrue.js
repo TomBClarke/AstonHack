@@ -1,19 +1,25 @@
 if (Meteor.isClient) {
-  Session.setDefault('name', '');
+  //Holds which page is being displayed:
+  Session.setDefault('page', 'login');
+
+  //Handles the login template:
   Template.login.events({
+    //Reacts to the button pres.
     'submit form': function(e) {
+      //Stops form reloading the page.
       e.preventDefault();
+      //Gets the name the user enterd.
       var name = event.target.name.value;
       if (name == "") {
         console.log("No name entered.");
       } else {
+        //Got a name, let's try to connect.
         console.log(name);
-        //Example of adding p's:
-        // $('#disp_name').append(
-        //   $('<p></p>').text(name)
-        // );
-        //Call Rowan's thing here. 
+        //Call submitting the connection here.
+        BlazeLayout.render( 'applicationLayout', { main: 'chat' } );
       }
     }
   });
+
+  
 }
