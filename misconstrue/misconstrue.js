@@ -15,7 +15,7 @@ if (Meteor.isClient) {
       } else {
         //Got a name, let's try to connect.
         console.log(name);
-        //Call Rowan's thing here. Could do with error handling.
+        //Call submitting the connection here.
         BlazeLayout.render( 'applicationLayout', { main: 'chat' } );
       }
     }
