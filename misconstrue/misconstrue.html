@@ -4,13 +4,27 @@
 </head>
 
 <body>
-	<h1>Welcome to Misconstrue!</h1>
-	{{> login}}
+	{{> login }}
 </body>
 
 <template name="login">
-    <form>
-        <input type="text" name="name">
-        <input type="submit" value="Log in">
-    </form>
+	<div id="login">
+		<h1>Welcome to Misconstrue!</h1>
+	    <form>
+	        <input type="text" name="name">
+	        <input type="submit" value="Log in">
+	    </form>
+	</div>
+</template>
+
+<template name="selectPerson">
+	<div id="selectPerson">
+		<p>Your name is: </p><span name="name_display"></span>
+	</div>
+</template>
+
+<template name="chat">
+	<div id="chat">
+		
+	</div>
 </template>
