@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type"   content="text/html; charset=utf-8" />
-        <meta name="viewport"             content="width=device-width, initial-scale=1"/>
-        <title>Chinese Whispers</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        
+        <title>Misconstrued</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="client.js"></script>
         <link type="text/css" rel="stylesheet" href="main.css"/>
     </head>
-    <body>
+    <body onload="initialiseSocket();">
         <div id="messages">
+            
         </div>
-        <div id="bottompane">
+        
+        <div id="bottompane">    
             <div>
                 <input id="input"></input>
             </div>
-            <p/>
+            
             <div id="buttons">
-                <input value="name"></input>
-                <button id="conn" onclick="connect();">Connect</button>
+                <input id="name" value="name"></input>
+                <button id="conn" onclick="registerName();">Connect</button>
                 <button id="send" onclick="send();">Send</button>
                 <button id="close" onclick="close();">Close</button>
             </div>
-            <p/>
         </div>
     </body>
 </html>

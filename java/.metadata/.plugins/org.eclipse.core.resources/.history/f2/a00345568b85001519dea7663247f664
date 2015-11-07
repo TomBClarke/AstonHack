@@ -1,0 +1,128 @@
+package misconstrued.server;
+
+import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+
+import org.java_websocket.WebSocket;
+import org.java_websocket.exceptions.WebsocketNotConnectedException;
+import org.java_websocket.handshake.ClientHandshake;
+import org.java_websocket.server.WebSocketServer;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class ChatServer extends WebSocketServer {
+
+	private static final Logger __logger = LoggerFactory.getLogger(ChatServer.class);
+	
+	/**
+	 * Maps connections to their names
+	 */
+	private HashMap<WebSocket, String> connections;
+
+	/**
+	 * Build simple socket server
+	 * @throws UnknownHostException
+	 */
+	public ChatServer() throws UnknownHostException {
+		super(new InetSocketAddress(3000));
+		
+		connections = new HashMap<WebSocket, String>();
+		__logger.info("Server is running.");
+	}
+
+	@Override
+	public void onClose(WebSocket ws, int code, String reason, boolean remote) {
+		System.out.println("Close");
+	}
+
+	@Override
+	public void onError(WebSocket ws, Exception e) {
+		__logger.error("Got server error", e);
+	}
+
+	@Override
+	public void onMessage(WebSocket ws, String message) {
+		__logger.info("Recieved message: {}", message);
+		
+		if (checkMetaMessage(ws, message)) {
+			__logger.info("Was meta message");
+			return;
+		}
+
+		String sender = connections.get(ws);
+		
+		Message m = new Message(sender, message);
+
+		broadcast(m.toString());
+	}
+
+	@Override
+	public void onOpen(WebSocket ws, ClientHandshake chs) {
+		connections.put(ws, "");
+	}
+
+	/**
+	 * Check if a message is a meta image
+	 * @param ws The sender
+	 * @param message Message sent
+	 * @return Whether it's a meta message
+	 */
+	private boolean checkMetaMessage(WebSocket ws, String message) {
+		try {
+			JSONObject json = new JSONObject(message);
+			
+			if (json.getString("type").equals("nameset")) {
+				String newName = json.getString("newName");
+				connections.put(ws, newName);
+			}
+			
+			return true;
+		} catch (JSONException e) {
+			return false;
+		}
+	}
+
+	/**
+	 * Broadcast a message to all connected clients
+	 * @param message
+	 */
+	private void broadcast(String message) {
+		// WS registered
+		Set<WebSocket> keySet = connections.keySet();
+
+		// List containing what WS to remove
+		List<WebSocket> toRemove = new ArrayList<WebSocket>();
+		
+		// Loop through and broadcast to all connected
+		for (WebSocket ws : keySet) {
+			System.out.println("Broadcasting to " + ws);
+			System.out.println("Name: " + connections.get(ws));
+			try {				
+				ws.send(message);
+			} catch (WebsocketNotConnectedException e){
+				System.out.println("WebSocket not connected - adding to remove list");
+				toRemove.add(ws);
+			}
+		}
+		
+		// Remove all the WS that we needed to
+		for (WebSocket ws : toRemove) {
+			connections.remove(ws);
+		}
+	}
+	
+	public static void main(String[] args) {
+		try {
+			ChatServer m = new ChatServer();
+			m.start();
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+	}
+}
