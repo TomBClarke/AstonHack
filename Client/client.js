@@ -1,8 +1,6 @@
 var name;
-var socket;
-
+var socket = new WebSocket("ws://localhost:3000"); // ("ws://82.46.212.232:32596");
 function connect() {
-    socket = new WebSocket("ws://localhost:3000"); // ("ws://82.46.212.232:32596");
     
 //    socket.onopen = function() {
 //        console.log("Sending Message");
