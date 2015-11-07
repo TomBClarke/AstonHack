@@ -2,13 +2,6 @@ if (Meteor.isClient) {
   //Holds which page is being displayed:
   Session.setDefault('page', 'login');
 
-  //Used to determine which page should be shown. (WIP)
-  // Template.body.page_is = function(data) {
-  //   if (Session.equals('page', data)) {
-
-  //   }
-  // }
-
   //Handles the login template:
   Template.login.events({
     //Reacts to the button pres.
@@ -23,6 +16,7 @@ if (Meteor.isClient) {
         //Got a name, let's try to connect.
         console.log(name);
         //Call Rowan's thing here. Could do with error handling.
+        BlazeLayout.render( 'applicationLayout', { main: 'chat' } );
       }
     }
   });

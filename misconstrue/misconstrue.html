@@ -4,8 +4,12 @@
 </head>
 
 <body>
-	{{> login }}
+	{{> applicationLayout}}
 </body>
+
+<template name="applicationLayout">
+	{{> Template.dynamic template=main}}
+</template>
 
 <template name="login">
 	<div id="login">
@@ -19,12 +23,10 @@
 
 <template name="selectPerson">
 	<div id="selectPerson">
-		<p>Your name is: </p><span name="name_display"></span>
 	</div>
 </template>
 
 <template name="chat">
 	<div id="chat">
-		
 	</div>
 </template>
