@@ -1,0 +1,12 @@
+package misconstrued.server;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Conversation {
+	private List<Member> members;
+	
+	public Conversation() {
+		members = new ArrayList<Member>();
+	}
+}

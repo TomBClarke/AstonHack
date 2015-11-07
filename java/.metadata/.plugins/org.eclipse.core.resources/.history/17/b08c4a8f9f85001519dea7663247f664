@@ -1,0 +1,147 @@
+package misconstrued.server;
+
+import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+
+import org.java_websocket.WebSocket;
+import org.java_websocket.exceptions.WebsocketNotConnectedException;
+import org.java_websocket.handshake.ClientHandshake;
+import org.java_websocket.server.WebSocketServer;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class ChatServer extends WebSocketServer {
+
+	private static final Logger __logger = LoggerFactory.getLogger(ChatServer.class);
+	
+	/**
+	 * Maps connections to their names
+	 */
+	private HashMap<WebSocket, Member> connections;
+	
+	private List<Conversation> conversations;
+
+	/**
+	 * Build simple socket server
+	 * @throws UnknownHostException
+	 */
+	public ChatServer() throws UnknownHostException {
+		super(new InetSocketAddress(3000));
+		
+		connections = new HashMap<WebSocket, Member>();
+		conversations = new ArrayList<Conversation>();
+		__logger.info("Server is running.");
+	}
+
+	@Override
+	public void onClose(WebSocket ws, int code, String reason, boolean remote) {
+		__logger.info("Closed connection for: " + connections.get(ws));
+	}
+
+	@Override
+	public void onError(WebSocket ws, Exception e) {
+		__logger.error("Got server error", e);
+	}
+
+	@Override
+	public void onMessage(WebSocket ws, String message) {
+		__logger.info("Recieved message: {}", message);
+		
+		Member member = connections.get(ws);
+		
+		if (checkMetaMessage(ws, message)) {
+			__logger.info("Was meta message");
+			return;
+		}
+
+		Message m = new Message(member.getName(), message);
+		
+		Conversation conv = getConversation(member);
+		
+		conv.broadcast(m.toString());
+	}
+
+	private Conversation getConversation(Member member) {
+		for (Conversation c : conversations) {
+			if (c.hasMember(member)) {
+				return c;
+			}
+		}
+		
+		return null;
+	}
+
+	@Override
+	public void onOpen(WebSocket ws, ClientHandshake chs) {
+		String id = ws.getLocalSocketAddress().toString();
+		
+		__logger.info("New client registered from " + id);
+		
+		Member newMember = new Member(ws);
+		
+		connections.put(ws, newMember);
+	}
+
+	/**
+	 * Check if a message is a meta image
+	 * @param ws The sender
+	 * @param message Message sent
+	 * @return Whether it's a meta message
+	 */
+	private boolean checkMetaMessage(WebSocket ws, String message) {
+		try {
+			JSONObject json = new JSONObject(message);
+			
+			String type = json.getString("type");
+			
+			if (type == null) {
+				return false;
+			} else if (type.equals("nameset")) {
+				String newName = json.getString("newName");
+				
+				__logger.info("Changing name from " + connections.get(ws) + " to " + newName);
+				connections.get(ws).setName(newName);
+			} else if (type.equals("groupget")) {
+				ws.send(getConversationsString());
+			} else if (type.equals("groupset")) {
+				int newGroupIndex = json.getInt("newGroup");
+				
+				__logger.info("Changing group to #" + newGroupIndex);
+				conversations.get(newGroupIndex).addMember(connections.get(ws));
+			} else {
+				return false;
+			}
+			
+			return true;
+		} catch (JSONException e) {
+			return false;
+		} 
+	}
+	
+	private String getConversationsString() {
+		String rawJSON = "{";
+		
+		for (Conversation c : conversations) {
+			
+		}
+		
+		rawJSON += "}";
+		
+		return rawJSON;
+	}
+
+	public static void main(String[] args) {
+		try {
+			ChatServer m = new ChatServer();
+			m.start();
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+	}
+}

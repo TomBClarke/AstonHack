@@ -1,0 +1,5 @@
+package misconstrued.server;
+
+public class Conversation {
+	private List<WebSocket> members;
+}

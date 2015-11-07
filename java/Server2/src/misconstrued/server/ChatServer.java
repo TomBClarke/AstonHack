@@ -2,7 +2,6 @@ package misconstrued.server;
 
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +23,12 @@ public class ChatServer extends WebSocketServer {
 	/**
 	 * Maps connections to their names
 	 */
-	private HashMap<WebSocket, String> connections;
+	private HashMap<WebSocket, Member> connections;
+	
+	/**
+	 * The conversations in progress
+	 */
+	private List<Conversation> conversations;
 
 	/**
 	 * Build simple socket server
@@ -33,7 +37,8 @@ public class ChatServer extends WebSocketServer {
 	public ChatServer() throws UnknownHostException {
 		super(new InetSocketAddress(3000));
 		
-		connections = new HashMap<WebSocket, String>();
+		connections = new HashMap<WebSocket, Member>();
+		conversations = new ArrayList<Conversation>();
 		__logger.info("Server is running.");
 	}
 
@@ -51,15 +56,18 @@ public class ChatServer extends WebSocketServer {
 	public void onMessage(WebSocket ws, String message) {
 		__logger.info("Recieved message: {}", message);
 		
+		Member member = connections.get(ws);
+		
 		if (checkMetaMessage(ws, message)) {
 			__logger.info("Was meta message");
 			return;
 		}
 
-		String sender = connections.get(ws);
-		Message m = new Message(sender, message);
+		Message m = new Message(member.getName(), message);
 		
-		broadcast(m.toString());
+		Conversation conv = getConversation(member);
+		
+		conv.broadcast(m.toString());
 	}
 
 	@Override
@@ -67,9 +75,28 @@ public class ChatServer extends WebSocketServer {
 		String id = ws.getLocalSocketAddress().toString();
 		
 		__logger.info("New client registered from " + id);
-		connections.put(ws, id);
+		
+		Member newMember = new Member(ws);
+		
+		connections.put(ws, newMember);
 	}
 
+	
+	/**
+	 * Get the conversation a member is in
+	 * @param member the member
+	 * @return the conversation it's in
+	 */
+	private Conversation getConversation(Member member) {
+		for (Conversation c : conversations) {
+			if (c.hasMember(member)) {
+				return c;
+			}
+		}
+		
+		return null;
+	}
+	
 	/**
 	 * Check if a message is a meta image
 	 * @param ws The sender
@@ -80,50 +107,54 @@ public class ChatServer extends WebSocketServer {
 		try {
 			JSONObject json = new JSONObject(message);
 			
-			if (json.getString("type").equals("nameset")) {
+			String type = json.getString("type");
+			
+			if (type == null) {
+				return false;
+			} else if (type.equals("nameset")) {
+				// Set the name
 				String newName = json.getString("newName");
 				
 				__logger.info("Changing name from " + connections.get(ws) + " to " + newName);
-				connections.put(ws, newName);
+				connections.get(ws).setName(newName);
+			} else if (type.equals("groupget")) {
+				// Send the conversation details
+				ws.send(getConversationsJSON());
+			} else if (type.equals("groupset")) {
+				// Set the conversation
+				int newGroupIndex = json.getInt("newGroup");
+				
+				__logger.info("Changing group to #" + newGroupIndex);
+				conversations.get(newGroupIndex).addMember(connections.get(ws));
+			} else {
+				// No type, so ignore
+				return false;
 			}
 			
+			// No matching type, so ignore
 			return true;
 		} catch (JSONException e) {
+			// Can't be targeted 
 			return false;
-		}
-	}
-
-	/**
-	 * Broadcast a message to all connected clients
-	 * @param message
-	 */
-	private void broadcast(String message) {
-		__logger.info("Broadcasting message");
-		
-		// WS registered
-		Set<WebSocket> keySet = connections.keySet();
-
-		// List containing what WS to remove
-		List<WebSocket> toRemove = new ArrayList<WebSocket>();
-		
-		// Loop through and broadcast to all connected
-		for (WebSocket ws : keySet) {
-			__logger.info("Broadcasting to " + connections.get(ws));
-			
-			try {				
-				ws.send(message);
-			} catch (WebsocketNotConnectedException e){
-				__logger.warn("WebSocket not connected - adding to remove list");
-				toRemove.add(ws);
-			}
-		}
-		
-		// Remove all the WS that we needed to
-		for (WebSocket ws : toRemove) {
-			connections.remove(ws);
-		}
+		} 
 	}
 	
+	/**
+	 * Get the conversations in JSON
+	 * @return
+	 */
+	private String getConversationsJSON() {
+		String rawJSON = "{\"conversations\":";
+		
+		for (int i = 0; i < conversations.size(); i++) {
+			rawJSON += conversations.get(i).toString() + ((i == conversations.size() - 1) ? "" : ", ");
+		}
+		
+		rawJSON += "}";
+		
+		return rawJSON;
+	}
+
 	public static void main(String[] args) {
 		try {
 			ChatServer m = new ChatServer();

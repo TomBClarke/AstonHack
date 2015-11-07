@@ -1,0 +1,8 @@
+package misconstrued.server;
+
+import org.java_websocket.WebSocket;
+
+public class Member {
+	final private WebSocket ws;
+	private String name;
+}

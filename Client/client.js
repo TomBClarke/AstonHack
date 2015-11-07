@@ -32,6 +32,13 @@ function registerName() {
     }));
 }
 
+function goToGroup(groupIndex) {
+    socket.send(JSON.stringify({
+        type: "groupset",
+        newGroup: groupIndex
+    }));
+}
+
 function send() {
     socket.send($("#input").val());
 }

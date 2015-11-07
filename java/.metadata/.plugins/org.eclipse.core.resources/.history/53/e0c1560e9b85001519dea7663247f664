@@ -1,0 +1,6 @@
+package misconstrued.server;
+
+public class Member {
+	final private WebSocket ws;
+	private String name;
+}

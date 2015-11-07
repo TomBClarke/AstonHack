@@ -1,0 +1,14 @@
+package misconstrued.server;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.java_websocket.WebSocket;
+
+public class Conversation {
+	private List<WebSocket> members;
+	
+	public Conversation() {
+		members = new ArrayList<WebSocket>();
+	}
+}

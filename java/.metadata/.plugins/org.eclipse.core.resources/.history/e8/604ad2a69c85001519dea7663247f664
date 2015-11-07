@@ -1,0 +1,49 @@
+package misconstrued.server;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.java_websocket.WebSocket;
+import org.java_websocket.exceptions.WebsocketNotConnectedException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Conversation {
+	private static final Logger __logger = LoggerFactory.getLogger(Conversation.class);
+	
+	private List<Member> members;
+	
+	public Conversation() {
+		members = new ArrayList<Member>();
+	}
+	
+
+	/**
+	 * Broadcast a message to all connected clients
+	 * @param message
+	 */
+	private void broadcast(String message) {
+		__logger.info("Broadcasting message");
+
+		// List containing what WS to remove
+		List<WebSocket> toRemove = new ArrayList<WebSocket>();
+		
+		// Loop through and broadcast to all connected
+		for (Member m : members) {
+			__logger.info("Broadcasting to " + m.getName());
+			
+			try {				
+				m.getWS().send(message);
+			} catch (WebsocketNotConnectedException e){
+				__logger.warn("WebSocket not connected - adding to remove list");
+				toRemove.add(m);
+			}
+		}
+		
+		// Remove all the WS that we needed to
+		for (WebSocket ws : toRemove) {
+			connections.remove(ws);
+		}
+	}
+}
