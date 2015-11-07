@@ -1,4 +1,5 @@
 if (Meteor.isClient) {
+  Session.setDefault('name', '');
   Template.login.events({
     'submit form': function(e) {
       e.preventDefault();
@@ -7,7 +8,11 @@ if (Meteor.isClient) {
         console.log("No name entered.");
       } else {
         console.log(name);
-        //Call Rowan's thing here.
+        //Example of adding p's:
+        // $('#disp_name').append(
+        //   $('<p></p>').text(name)
+        // );
+        //Call Rowan's thing here. 
       }
     }
   });
