@@ -1,0 +1,16 @@
+package com.astonhack.chat.server;
+
+import org.eclipse.jetty.server.Server;
+
+/**
+ * Created by misha on 07/11/15.
+ *
+ * Runs the server
+ */
+public class Main {
+    public static void main(String[] args) {
+        Server server = new Server(3000);
+        
+        
+    }
+}

@@ -1,0 +1,5 @@
+import org.java_websocket.server.WebSocketServer;
+
+public class Main extends WebSocketServer {
+
+}

@@ -1,0 +1,7 @@
+INDEX VERSION 1.3+/home/misha/Documents/gitfiles/AstonHack/java/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+3743812607.index
+2436414114.index
+1243800726.index
+386379710.index
+3815297298.index
+2095603280.index

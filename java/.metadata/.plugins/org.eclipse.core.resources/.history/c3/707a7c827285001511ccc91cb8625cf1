@@ -1,0 +1,16 @@
+package com.astonhack.chat.server;
+
+import javax.websocket.server.ServerEndpoint;
+
+import org.eclipse.jetty.websocket.api.annotations.WebSocket;
+
+/**
+ * Created by misha on 07/11/15.
+ *
+ * Opens server up for connections
+ */
+
+@ServerEndpoint("/websocket/echoAnnotation")
+public class ChatServer {
+	
+}

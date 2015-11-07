@@ -1,0 +1,21 @@
+package com.astonhack.chat.server;
+
+import java.io.IOException;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.websocket.OnMessage;
+import javax.websocket.Session;
+
+import org.eclipse.jetty.client.HttpSender;
+
+/**
+ * Created by misha on 07/11/15.
+ *
+ * Opens server up for connections
+ */
+
+@WebServlet(value = "/", loadOnStartup = 1)
+public class ChatServer extends HttpServlet {
+	
+}

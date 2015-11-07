@@ -1,0 +1,20 @@
+package com.astonhack.chat.server;
+
+import javax.websocket.server.ServerEndpoint;
+
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.websocket.server.WebSocketHandler;
+import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
+
+/**
+ * Created by misha on 07/11/15.
+ *
+ * Runs the server
+ */
+
+@ServerEndpoint("/websocket/echoAnnotation")
+public class Main {
+    public static void main(String[] args) {
+        
+    }
+}

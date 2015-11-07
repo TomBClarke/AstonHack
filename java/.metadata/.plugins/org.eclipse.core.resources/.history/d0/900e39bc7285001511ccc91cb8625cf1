@@ -1,0 +1,23 @@
+package com.astonhack.chat.server;
+
+import javax.websocket.OnMessage;
+import javax.websocket.server.ServerEndpoint;
+
+import org.apache.catalina.Session;
+
+/**
+ * Created by misha on 07/11/15.
+ *
+ * Opens server up for connections
+ */
+
+@ServerEndpoint("/websocket/echoAnnotation")
+public class ChatServer {
+	
+	@OnMessage
+	public void echoTextMessage(Session session, String message, boolean last) {
+		if (session.isOpen()) {
+			
+		}
+	}
+}

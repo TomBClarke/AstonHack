@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.astonhack.chat.server.Server&apos; to &apos;ChatServer&apos;&#x0A;- Original project: &apos;Server&apos;&#x0A;- Original element: &apos;com.astonhack.chat.server.Server&apos;&#x0A;- Renamed element: &apos;com.astonhack.chat.server.ChatServer&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Server&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.astonhack.chat.server{Server.java[Server" matchStrategy="1" name="ChatServer" qualified="false" references="true" similarDeclarations="false" stamp="1446915828732" textual="false" version="1.0"/>
+</session>

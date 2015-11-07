@@ -1,0 +1,38 @@
+import java.net.UnknownHostException;
+
+import org.java_websocket.WebSocket;
+import org.java_websocket.handshake.ClientHandshake;
+import org.java_websocket.server.WebSocketServer;
+
+public class Main extends WebSocketServer {
+
+	public Main() throws UnknownHostException {
+		super();
+		System.out.println("constructor");
+	}
+
+	@Override
+	public void onClose(WebSocket arg0, int arg1, String arg2, boolean arg3) {
+		System.out.println("Close");
+	}
+
+	@Override
+	public void onError(WebSocket arg0, Exception arg1) {
+		System.out.println("error");
+	}
+
+	@Override
+	public void onMessage(WebSocket arg0, String arg1) {
+		System.out.println("message");
+	}
+
+	@Override
+	public void onOpen(WebSocket arg0, ClientHandshake arg1) {
+		System.out.println("open");
+	}
+	
+	public static void main(String[] args) {
+		Main m = new Main();
+	}
+	
+}

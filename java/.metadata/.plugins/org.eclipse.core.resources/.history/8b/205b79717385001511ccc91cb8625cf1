@@ -1,0 +1,29 @@
+package com.astonhack.chat.server;
+
+import java.io.IOException;
+
+import javax.websocket.OnMessage;
+import javax.websocket.server.ServerEndpoint;
+
+import javax.websocket.Session;
+
+/**
+ * Created by misha on 07/11/15.
+ *
+ * Opens server up for connections
+ */
+
+@ServerEndpoint("/websocket/echoAnnotation")
+public class ChatServer {
+	
+	@OnMessage
+	public void echoTextMessage(Session session, String message, boolean last) {
+		try {
+			if (session.isOpen()) {
+				session.getBasicRemote().sendText("Hello world!", last);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
