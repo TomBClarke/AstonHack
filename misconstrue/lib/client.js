@@ -7,11 +7,6 @@ initialiseSocket = function() {
     socket.onmessage = function(s) {
         var message = $.parseJSON(s.data);
 
-<<<<<<< HEAD
-        console.log(message);
-
-=======
->>>>>>> something
         if (message.conversations) {
             showConversations(message.conversations);
             return;

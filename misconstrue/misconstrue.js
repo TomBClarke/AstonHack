@@ -20,11 +20,7 @@ if (Meteor.isClient) {
     }
   });
 
-<<<<<<< HEAD
-  Template.selectPerson.events({
-=======
     Template.selectPerson.events({
->>>>>>> something
     //Reacts to the button press.
     'submit form': function(e) {
       //Stops form reloading the page.
@@ -49,8 +45,4 @@ if (Meteor.isClient) {
     }
   });
  
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> something

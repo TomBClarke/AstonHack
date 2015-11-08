@@ -1,10 +1,7 @@
 FlowRouter.route( '/login', {
   action: function() {
 <<<<<<< HEAD
-  	BlazeLayout.render( 'applicationLayout', { main: 'login' } ); 
-=======
   	BlazeLayout.render( 'applicationLayout', { main: 'login' } );
->>>>>>> something
   },
   name: 'login'
 });
