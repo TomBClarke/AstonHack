@@ -81,7 +81,7 @@ public class Conversation {
 		return rawJSON;
 	}
 
-	public void remove(WebSocket ws) {
-		members.remove(ws);
+	public void remove(Member m) {
+		members.remove(m);
 	}
 }

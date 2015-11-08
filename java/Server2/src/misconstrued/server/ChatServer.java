@@ -44,13 +44,12 @@ public class ChatServer extends WebSocketServer {
 	public void onClose(WebSocket ws, int code, String reason, boolean remote) {
 		__logger.info("Closed connection for: " + connections.get(ws));
 		
-		connections.remove(ws);
-		
 		Conversation conv = getConversation(connections.get(ws));
+		conv.remove(connections.get(ws));
+		connections.remove(ws);
 		if(conv.isEmpty()) {
 			conversations.remove(conv);
-		} else {
-			conv.remove(ws);
+			__logger.info("Conversation dropped");
 		}
 		
 	}

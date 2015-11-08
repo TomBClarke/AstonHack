@@ -1,5 +1,6 @@
 var name;
 var socket;
+var name;
 
 initialiseSocket = function() {
         socket = new WebSocket('ws://localhost:5000');
@@ -18,7 +19,7 @@ initialiseSocket = function() {
                         .attr('class', 'message-container text')
                         .append($('<div></div>')
                             .attr('class', 'message-sender')
-                            .text(message.sender + ': ' + message.text))
+                            .text(((message.sender == name) ? "You" : message.sender) + ': ' + message.text))
                 );
             } else if (message.image) {
                 $('#messages').append(
@@ -26,7 +27,7 @@ initialiseSocket = function() {
                         .attr('class', 'imgchat text')
                         .append($('<div></div>')
                             .attr('class', 'message-sender')
-                            .text(message.sender + ':'))
+                            .text(((message.sender == name) ? "You" : message.sender) + ':'))
                         .append($('<img></img>')
                             .attr('class', 'message-pic')
                             .attr('src', message.image))
@@ -42,11 +43,13 @@ initialiseSocket = function() {
         }
 }
 
-registerName = function(name) {
+registerName = function(_name) {
+    name = _name;
     socket.send(JSON.stringify({
         'type': "nameset",
         'newName': name
     }));
+
 }
 
 goToGroup = function(groupIndex) {
