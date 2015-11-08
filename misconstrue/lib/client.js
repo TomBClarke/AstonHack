@@ -2,24 +2,26 @@ var name;
 var socket;
 
 initialiseSocket = function() {
-    socket = new WebSocket("ws://localhost:5000");
-    
-    socket.onmessage = function(s) {
-        var message = $.parseJSON(s.data);
+        socket = new WebSocket("ws://localhost:5000");
+        
+        socket.onmessage = function(s) {
+            if (message.conversations) {
+                showConversations(message.conversations);
+                return;
+            } 
 
-        if (message.conversations) {
-            showConversations(message.conversations);
-            return;
-        } 
+    		$("#messages").append(
+                $("<div></div>")
+                    .attr("class", "message-container text")
+                    .append($("<div></div>")
+                        .attr("class", "message-sender")
+                        .text(message.sender + ' says: ' + message.text))
+    		);
+        }
 
-		$("#messages").append(
-            $("<div></div>")
-                .attr("class", "message-container text")
-                .append($("<div></div>")
-                    .attr("class", "message-sender")
-                    .text(message.sender + ' says: ' + message.text))
-		);
-    }
+        socket.onerror = function(s) {
+            BlazeLayout.render( 'applicationLayout', { main: 'error' } );
+        }
 }
 
 registerName = function(name) {
