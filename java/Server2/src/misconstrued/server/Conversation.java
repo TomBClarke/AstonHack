@@ -3,6 +3,7 @@ package misconstrued.server;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.java_websocket.WebSocket;
 import org.java_websocket.exceptions.WebsocketNotConnectedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,10 @@ public class Conversation {
 
 	public void addMember(Member member) {
 		this.members.add(member);
+	}
+	
+	public boolean isEmpty() {
+		return members.isEmpty();
 	}
 
 	/**
@@ -74,5 +79,9 @@ public class Conversation {
 		rawJSON += "]}";
 
 		return rawJSON;
+	}
+
+	public void remove(WebSocket ws) {
+		members.remove(ws);
 	}
 }

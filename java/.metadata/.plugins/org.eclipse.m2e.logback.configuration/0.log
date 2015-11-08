@@ -1672,3 +1672,19 @@ Caused by: java.io.FileNotFoundException: C:\wamp\www\AstonHack\java\.metadata\.
 2015-11-08 07:21:46,473 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\main\resources
 2015-11-08 07:21:46,474 [Worker-39] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2015-11-08 07:21:46,475 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\test\resources
+2015-11-08 07:51:28,894 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 07:51:28,896 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\main\resources
+2015-11-08 07:51:28,897 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 07:51:28,898 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\test\resources
+2015-11-08 08:51:59,491 [Worker-48] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 08:51:59,493 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\main\resources
+2015-11-08 08:51:59,494 [Worker-48] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 08:51:59,495 [Worker-48] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\test\resources
+2015-11-08 09:01:10,283 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 09:01:10,284 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\main\resources
+2015-11-08 09:01:10,285 [Worker-46] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 09:01:10,286 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\test\resources
+2015-11-08 09:07:26,132 [Worker-30] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 09:07:26,133 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\main\resources
+2015-11-08 09:07:26,134 [Worker-30] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 09:07:26,135 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\test\resources

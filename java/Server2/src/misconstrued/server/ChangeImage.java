@@ -10,12 +10,14 @@ import javax.imageio.ImageIO;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.ibm.watson.developer_cloud.visual_recognition.v1.VisualRecognition;
 import com.ibm.watson.developer_cloud.visual_recognition.v1.model.RecognizedImage;
 
 public class ChangeImage {
-	
+	private static final Logger __logger = LoggerFactory.getLogger(ChangeImage.class);
 //	public static void main(String[] args) {
 //		ChangeImage change = new ChangeImage();
 //		try {
@@ -51,6 +53,7 @@ public class ChangeImage {
 		String json = rec.toString();
 		JSONArray labels = (new JSONObject(json)).getJSONArray("labels");
 		String searchString = "";
+		__logger.info(labels.toString());
 		for(int i = 0; i < 3 && i < labels.length(); i++) {
 			String category = labels.getJSONObject(i).getString("label_name");
 			searchString += category.replaceAll(" ", "%20");

@@ -43,6 +43,16 @@ public class ChatServer extends WebSocketServer {
 	@Override
 	public void onClose(WebSocket ws, int code, String reason, boolean remote) {
 		__logger.info("Closed connection for: " + connections.get(ws));
+		
+		connections.remove(ws);
+		
+		Conversation conv = getConversation(connections.get(ws));
+		if(conv.isEmpty()) {
+			conversations.remove(conv);
+		} else {
+			conv.remove(ws);
+		}
+		
 	}
 
 	@Override

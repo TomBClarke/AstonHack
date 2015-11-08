@@ -10,7 +10,7 @@ initialiseSocket = function() {
             if (message.conversations) {
                 showConversations(message.conversations);
                 return;
-            } 
+            }
 
             if (message.text) {
                 $('#messages').append(
@@ -32,6 +32,9 @@ initialiseSocket = function() {
                             .attr('src', message.image))
                 );
             }
+            
+            var objDiv = document.getElementById("messages");
+            objDiv.scrollTop = objDiv.scrollHeight;
         }
 
         socket.onerror = function(s) {
