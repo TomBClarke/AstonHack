@@ -903,3 +903,22 @@ java.lang.NullPointerException: null
 2015-11-08 00:33:45,152 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\main\resources
 2015-11-08 00:33:45,153 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2015-11-08 00:33:45,154 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\test\resources
+2015-11-08 00:49:57,659 [Worker-2] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2015-11-08 00:50:00,869 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Server2:Server2:0.0.1-SNAPSHOT @ C:\wamp\www\AstonHack\java\Server2\pom.xml.
+2015-11-08 00:50:02,551 [Worker-2] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Server2/src
+2015-11-08 00:50:02,552 [Worker-2] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Server2/src/test/java because it overlaps with /Server2/src
+2015-11-08 00:50:02,860 [Worker-2] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 5 sec
+2015-11-08 00:50:09,184 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 00:50:09,185 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\main\resources
+2015-11-08 00:50:09,188 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 00:50:09,189 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\test\resources
+2015-11-08 00:50:11,016 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is not out-of-date. No remote download required.
+2015-11-08 01:16:42,145 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 01:16:42,146 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\main\resources
+2015-11-08 01:16:42,147 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 01:16:42,148 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\test\resources
+2015-11-08 01:36:36,497 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 01:36:36,500 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\main\resources
+2015-11-08 01:36:36,501 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 01:36:36,502 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\test\resources
+2015-11-08 01:36:36,726 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is not out-of-date. No remote download required.
