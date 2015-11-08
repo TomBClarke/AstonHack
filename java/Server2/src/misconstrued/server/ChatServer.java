@@ -158,11 +158,7 @@ public class ChatServer extends WebSocketServer {
 	 * @return
 	 */
 	private String getConversationsJSON() {
-<<<<<<< HEAD
 		String rawJSON = "{\"conversations\": [";
-=======
-		String rawJSON = "{\"conversations\":[";
->>>>>>> something
 		
 		for (int i = 0; i < conversations.size(); i++) {
 			rawJSON += conversations.get(i).toString() + ((i == conversations.size() - 1) ? "" : ", ");

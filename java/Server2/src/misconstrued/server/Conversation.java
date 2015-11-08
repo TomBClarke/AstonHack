@@ -57,11 +57,7 @@ public class Conversation {
 
 	@Override
 	public String toString() {
-<<<<<<< HEAD
 		String rawJSON = "{\"members\": [";
-=======
-		String rawJSON = "{\"members\":[";
->>>>>>> something
 
 		for (int i = 0; i < members.size(); i++) {
 			rawJSON += members.get(i).toString() + ((i == members.size() - 1) ? "" : ", ");
