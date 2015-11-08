@@ -19,7 +19,8 @@ public class Message {
 	 *            Text of message
 	 */
 	public Message(String sender, String text) {
-		this.text = text;
+		Translate translate = new Translate();
+		this.text = translate.translate(text);
 		this.sender = sender;
 	}
 
