@@ -35,7 +35,7 @@ public class ChatServer extends WebSocketServer {
 	 * @throws UnknownHostException
 	 */
 	public ChatServer() throws UnknownHostException {
-		super(new InetSocketAddress(3000));
+		super(new InetSocketAddress(5000));
 		
 		connections = new HashMap<WebSocket, Member>();
 		conversations = new ArrayList<Conversation>();
@@ -123,9 +123,10 @@ public class ChatServer extends WebSocketServer {
 			} else if (type.equals("groupset")) {
 				// Set the conversation
 				int newGroupIndex = json.getInt("newGroup");
-				
 				__logger.info("Changing group to #" + newGroupIndex);
 				conversations.get(newGroupIndex).addMember(connections.get(ws));
+			} else if (type.equals("groupnew")) {
+				newConversation(ws);
 			} else {
 				// No type, so ignore
 				return false;
@@ -140,17 +141,30 @@ public class ChatServer extends WebSocketServer {
 	}
 	
 	/**
+	 * Makes a new conversation.
+	 * 
+	 * @param ws
+	 */
+	private void newConversation(WebSocket ws) {
+		Conversation conv = new Conversation();
+		
+		__logger.info("Creating new conversation");
+		conv.addMember(connections.get(ws));
+		conversations.add(conv);
+	}
+
+	/**
 	 * Get the conversations in JSON
 	 * @return
 	 */
 	private String getConversationsJSON() {
-		String rawJSON = "{\"conversations\":";
+		String rawJSON = "{\"conversations\":[";
 		
 		for (int i = 0; i < conversations.size(); i++) {
 			rawJSON += conversations.get(i).toString() + ((i == conversations.size() - 1) ? "" : ", ");
 		}
 		
-		rawJSON += "}";
+		rawJSON += "]}";
 		
 		return rawJSON;
 	}
