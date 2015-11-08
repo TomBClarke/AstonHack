@@ -3,30 +3,22 @@ package misconstrued.server;
 /**
  * Contains information about a message
  * 
- * @author misha
+ * @author Misha
  *
  */
-public class Message {
-	private static final Translate translate = new Translate();
+public abstract class Message {
 	
-	/**
-	 * The text and sender of the message
-	 */
-	private String text, sender;
+	protected String text, sender;
 
-	/**
-	 * @param ws
-	 *            Sender
-	 * @param text
-	 *            Text of message
-	 */
-	public Message(String sender, String text) {
-		this.text = translate.translateMultiple(text);
+	public Message(String sender) {
 		this.sender = sender;
 	}
-
-	@Override
-	public String toString() {
-		return "{\"text\": \"" + this.text + "\", \"sender\": \"" + this.sender + "\"}";
+	
+	public static Message getMessageFromString(String sender, String text) {
+		if (text.indexOf("http") == 0) {
+			return new PictureMessage(sender, text);
+		} else {
+			return new TextMessage(sender, text);
+		}
 	}
 }

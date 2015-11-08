@@ -116,3 +116,44 @@ html, body, #__blaze-root {
     margin: 30px;
     margin: 0 auto;
 }
+
+.message-sender {
+    max-width: 600px;
+}
+
+#blankWarning {
+    position: fixed;
+    top: 0;
+    width: 50%;
+    left: 25%;
+    right: 25%;
+    background-color: rgba(66, 133, 244, 0.3);
+    border-left: 1px solid #4285f4;
+    border-right: 1px solid #4285f4;
+    border-bottom: 1px solid #4285f4;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: white;
+    display: none;
+}
+
+#credits {
+    position: fixed;
+    bottom: 0;
+    width: 70%;
+    left: 15%;
+    right: 15%;
+    background-color: rgba(66, 133, 244, 0.3);
+    border-left: 1px solid #4285f4;
+    border-right: 1px solid #4285f4;
+    border-top: 1px solid #4285f4;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+    font-size: 1em;
+    padding: 10px;
+}
+
+#credits a {
+    color: #4285f4;
+}

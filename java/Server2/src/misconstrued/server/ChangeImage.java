@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
-import java.util.Random;
 
 import javax.imageio.ImageIO;
 
@@ -19,27 +18,27 @@ import com.ibm.watson.developer_cloud.visual_recognition.v1.model.RecognizedImag
 
 public class ChangeImage {
 	
-	public static void main(String[] args) {
-		ChangeImage change = new ChangeImage();
-		try {
-			URI pictureURI = new URI("file:/c:/Users/Rowan/Desktop/cat.jpg");
-			File img = new File(pictureURI);
-			Image likeACatButNotACat = change.convert(img);
-			saveImage(likeACatButNotACat);
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	public static void main(String[] args) {
+//		ChangeImage change = new ChangeImage();
+//		try {
+//			URI pictureURI = new URI("file:/c:/Users/Rowan/Desktop/cat.jpg");
+//			File img = new File(pictureURI);
+//			Image likeACatButNotACat = change.convert(img);
+//			saveImage(likeACatButNotACat);
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
+//	
+//	private static void saveImage(Image img) {
+//		try {
+//			ImageIO.write((BufferedImage) img, "png", new File("LikeACatButNotACat.jpg"));
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 	
-	private static void saveImage(Image img) {
-		try {
-			ImageIO.write((BufferedImage) img, "png", new File("LikeACatButNotACat.jpg"));
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public Image convert(File image) {
+	public String convert(File image) {
 		VisualRecognition service = new VisualRecognition();
 		service.setUsernameAndPassword("6f0055ed-61a1-48c7-b0ee-567a657e8bd5", "N2A379yhZGei");
 
@@ -47,9 +46,7 @@ public class ChangeImage {
 		
 		String searchString = createSearchString(recognizedImage);
 		
-		Image newImage = getImage(searchString);
-		
-		return newImage;
+		return getImage(searchString);
 	}
 	
 	private String createSearchString(RecognizedImage rec) {
@@ -58,7 +55,6 @@ public class ChangeImage {
 		String searchString = "";
 		for(int i = 0; i < 3 && i < labels.length(); i++) {
 			String category = labels.getJSONObject(i).getString("label_name");
-			System.out.println(category);
 			searchString += category.replaceAll(" ", "%20");
 			if(i != labels.length() - 1) {
 				searchString += "%20";
@@ -67,7 +63,7 @@ public class ChangeImage {
 		return searchString;
 	}
 	
-	private Image getImage(String search) {
+	private String getImage(String search) {
 		String json = "";
 		try {
 			BufferedReader page = 
@@ -93,22 +89,21 @@ public class ChangeImage {
 		
 		while(notFound) {
 			JSONObject obj = new JSONObject(json);
-			System.out.println(obj);
 			try {
 				imgUrl = obj.getJSONObject("responseData").getJSONArray("results").getJSONObject(i).getString("unescapedUrl");
 			} catch(Exception e) {
 				notFound = false;
 			}
-			System.out.println(imgUrl);
+			
 			try {
 				URL url = new URL(imgUrl);
 				image = ImageIO.read(url);
-				notFound = false;
+				return url.getPath();
 			} catch(Exception e) {
 				i++;
 			}
 		}
 		
-		return image;
+		return null;
 	}
 }

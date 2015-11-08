@@ -2,7 +2,7 @@ var name;
 var socket;
 
 initialiseSocket = function() {
-        socket = new WebSocket("ws://localhost:5000");
+        socket = new WebSocket('ws://localhost:5000');
         
         socket.onmessage = function(s) {
             var message = $.parseJSON(s.data);
@@ -12,13 +12,26 @@ initialiseSocket = function() {
                 return;
             } 
 
-    		$("#messages").append(
-                $("<div></div>")
-                    .attr("class", "message-container text")
-                    .append($("<div></div>")
-                        .attr("class", "message-sender")
-                        .text(message.sender + ': ' + message.text))
-    		);
+            if (message.text) {
+                $('#messages').append(
+                    $('<div></div>')
+                        .attr('class', 'message-container text')
+                        .append($('<div></div>')
+                            .attr('class', 'message-sender')
+                            .text(message.sender + ': ' + message.text))
+                );
+            } else if (message.image) {
+                $('#messages').append(
+                    $('<div></div>')
+                        .attr('class', 'message-container text')
+                        .append($('<div></div>')
+                            .attr('class', 'message-sender')
+                            .text(message.sender + ':'))
+                        .append($('<image></image>')
+                            .attr('class', 'message-sender')
+                            .attr('src', message.image))
+                );
+            }
         }
 
         socket.onerror = function(s) {

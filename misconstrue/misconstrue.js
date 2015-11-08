@@ -11,7 +11,7 @@ if (Meteor.isClient) {
       //Gets the name the user entered.
       var name = event.target.name.value;
       if (name == "") {
-        alert("No name entered.");
+        warnBlank();
       } else {
         registerName(name);
         send(JSON.stringify({ 'type': 'groupget' }));
@@ -34,17 +34,21 @@ if (Meteor.isClient) {
     //Reacts to the button press.
     'submit form': function(e) {
       //Stops form reloading the page.
-      console.log(e);
       e.preventDefault();
       //Gets the words the user entered.
       var words = event.target.chatMsg.value;
       $('#chatMsg').val("");
       if (words == "") {
-        alert("No text entered.");
+        warnBlank();
       } else {
         send(words);
       }
     }
   });
  
+}
+
+warnBlank = function() {
+  $('#blankWarning').fadeIn();
+  setTimeout(function() { $('#blankWarning').fadeOut(); }, 2000);
 }

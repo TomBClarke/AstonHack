@@ -6,6 +6,9 @@
 </head>
 
 <body onload="initialiseSocket();" onunload="close();">
+	<div id="blankWarning">
+		<p>Please enter text before submiting.</p>
+	</div>
 	{{> applicationLayout}}
 </body>
 
@@ -25,6 +28,16 @@
 	        <input type="submit" value="Log in" />
 	    </form>
 	</div>
+	<div id="credits">
+		<span>Created by: </span>
+		<a href="http://tombclarke.co.uk">Tom Clarke</a>
+		<span>, </span>
+		<a href="http://mishawagner.com">Misha Wagner</a>
+		<span> and </span>
+		<a href="https://www.linkedin.com/in/rowanphilip">Rowan Cole</a>
+		<span> using </span>
+		<a href="https://console.ng.bluemix.net/catalog/">IBM's Project Watson</a>
+	</div>
 </template>
 
 <template name="selectPerson">
@@ -42,11 +55,7 @@
         
         <div>
             <form id="chat-form">
-                <input id="chatMsg" type="text" name="chatMsg" autocomplete="off" placeholder="Enter your message here." />
-                <input id="chatSubmit" type="submit" value="Send" />
-            </form>
-            <form id="chat-form">
-                <input id="chatMsg" type="text" name="chatMsg" autocomplete="off" placeholder="Enter your message here." />
+                <input id="chatMsg" type="text" name="chatMsg" autocomplete="off" placeholder="Enter message or image URL." />
                 <input id="chatSubmit" type="submit" value="Send" />
             </form>
         </div>

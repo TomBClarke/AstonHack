@@ -65,7 +65,7 @@ public class ChatServer extends WebSocketServer {
 			return;
 		}
 
-		Message m = new Message(member.getName(), message);
+		Message m = Message.getMessageFromString(member.getName(), message);
 		
 		Conversation conv = getConversation(member);
 		
