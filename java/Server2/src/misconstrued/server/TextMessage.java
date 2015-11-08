@@ -6,8 +6,7 @@ public class TextMessage extends Message {
 	
 	public TextMessage(String sender, String text) {
 		super(sender);
-//		this.text = translate.translateMultiple(text);
-		this.text = text;
+		this.text = translate.translateMultiple(text);
 	}
 
 	@Override
