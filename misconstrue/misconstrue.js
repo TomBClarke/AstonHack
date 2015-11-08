@@ -4,22 +4,45 @@ if (Meteor.isClient) {
 
   //Handles the login template:
   Template.login.events({
-    //Reacts to the button pres.
+    //Reacts to the button press.
     'submit form': function(e) {
       //Stops form reloading the page.
       e.preventDefault();
-      //Gets the name the user enterd.
+      //Gets the name the user entered.
       var name = event.target.name.value;
       if (name == "") {
-        console.log("No name entered.");
+        alert("No name entered.");
       } else {
-        //Got a name, let's try to connect.
-        console.log(name);
-        //Call submitting the connection here.
-        BlazeLayout.render( 'applicationLayout', { main: 'chat' } );
+        registerName(name);
+        send(JSON.stringify({ 'type': 'groupget' }));
+        BlazeLayout.render( 'applicationLayout', { main: 'selectPerson' } );
       }
     }
   });
 
-  
+  Template.selectPerson.events({
+    //Reacts to the button press.
+    'submit form': function(e) {
+      //Stops form reloading the page.
+      e.preventDefault();
+      send(JSON.stringify({ 'type': 'groupnew' }));
+      BlazeLayout.render( 'applicationLayout', { main: 'chat' } );
+    }
+  });
+
+  Template.chat.events({
+    //Reacts to the button press.
+    'submit form': function(e) {
+      //Stops form reloading the page.
+      e.preventDefault();
+      //Gets the words the user entered.
+      var words = event.target.chatMsg.value;
+      if (words == "") {
+        alert("No text entered.");
+      } else {
+        send(words);
+      }
+    }
+  });
+ 
 }

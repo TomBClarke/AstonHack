@@ -3,7 +3,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
-<body>
+<body onload="initialiseSocket();" onunload="close();">
 	{{> applicationLayout}}
 </body>
 
@@ -22,11 +22,22 @@
 </template>
 
 <template name="selectPerson">
-	<div id="selectPerson">
+	<div id="conversations">
+
 	</div>
+	<form>
+        <input type="submit" value="New chat">
+	</form>
 </template>
 
 <template name="chat">
-	<div id="chat">
+	<div id="messages">
+
+	</div>
+	<div>
+		<form>
+	        <input type="text" name="chatMsg">
+	        <input type="submit" value="Send">
+	    </form>
 	</div>
 </template>

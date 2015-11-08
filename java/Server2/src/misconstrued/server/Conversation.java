@@ -57,13 +57,13 @@ public class Conversation {
 
 	@Override
 	public String toString() {
-		String rawJSON = "{\"members\":";
+		String rawJSON = "{\"members\": [";
 
 		for (int i = 0; i < members.size(); i++) {
 			rawJSON += members.get(i).toString() + ((i == members.size() - 1) ? "" : ", ");
 		}
 
-		rawJSON += "}";
+		rawJSON += "]}";
 
 		return rawJSON;
 	}
