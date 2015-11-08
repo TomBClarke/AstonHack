@@ -6,46 +6,99 @@ body {
     font-family: Arial, san-serif;
 }
 
-h1 {
-    padding: 10%;
-    font-size: 4em;
-    color: #E27575;
+#title {
+    font-size: 400%;
+    margin-top: 75px;
+    margin-bottom: 10px;
+}
+
+#title-desc {
+    font-size: 200%;
+    margin-top: 5px;
+    margin-bottom: 150px;
+}
+
+#title, #title-desc {
+    color: #4285f4;
 }
 
 .text {
     padding: 5px;
     font-size: 2em;
     font-weight: bold;
-    color: #E27575;
+    color: #4285f4;
 }
 
 input[type="text"] {
     background: #FFF;
     border: none;
     padding: 10px 25px 10px 25px;
-    color: #E27575;
+    color: #4285f4;
     font-size: 2em;
     box-shadow: 1px 1px 5px #B6B6B6;
-    border: 1px solid #E27575;
+    border: 1px solid #4285f4;
     border-radius: 3px;
-    text-shadow: 1px 1px 1px #9E3F3F;
+    text-shadow: 1px 1px 1px #4285f4;
     margin: 10px;
 }
 
 input[type="submit"] {
     margin: 10px;
-    background: #E27575;
+    background: #4285f4;
     border: none;
     padding: 10px 25px 10px 25px;
     color: #FFF;
     font-size: 2em;
     box-shadow: 1px 1px 5px #B6B6B6;
     border-radius: 3px;
-    text-shadow: 1px 1px 1px #9E3F3F;
+    text-shadow: 1px 1px 1px #4285f4;
     cursor: pointer;
 }
 
 input[type="submit"]:hover {
-    background: #CF7A7A
+    background: #4285f4;
 }
 
+#chat-form input, #chat-form div {
+    display: inline-block;
+    margin: 5px 3px;
+}
+
+#chatName {
+    font-size: 200%;
+    text-align: right;
+    
+    color: #666;
+}
+
+#chatMsg { width: 75%; }
+#chatSubmit { width: 20%; }
+
+#messages {
+    height: 90%;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+#chat-wrapper {
+    height: 100%;
+    max-width: 700px;
+    
+    margin: 20px auto;
+}
+
+html, body, #__blaze-root {
+    height: 95%;
+}
+
+#conversations {
+    padding: 30px;
+}
+
+.conversation {
+    border: 1px solid #666;
+    border-radius: 3px;
+    width: 30%;
+    margin: 30px;
+    margin: 0 auto;
+}

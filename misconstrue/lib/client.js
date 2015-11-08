@@ -5,6 +5,8 @@ initialiseSocket = function() {
         socket = new WebSocket("ws://localhost:5000");
         
         socket.onmessage = function(s) {
+            var message = $.parseJSON(s.data);
+            
             if (message.conversations) {
                 showConversations(message.conversations);
                 return;
@@ -48,10 +50,14 @@ close = function() {
 
 showConversations = function(cs) {
     cs.forEach(function(c, ci) {
+        var members = c.members.map(function(d) { return d.name}).join(", ")
+        
+        console.log(members);
+        
         $("#conversations").append(
             $("<div></div>")
                 .attr('class', 'text conversation')
-                .text(c.members.join(", "))
+                .text("Members: " + members)
                 .on('click', function() { enterChatRoom(ci); })
         );
     });

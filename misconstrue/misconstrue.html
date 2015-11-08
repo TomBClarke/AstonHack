@@ -1,6 +1,8 @@
 <head>
 	<title>Misconstrue</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
 <body onload="initialiseSocket();" onunload="close();">
@@ -13,7 +15,11 @@
 
 <template name="login">
 	<div id="login">
-		<h1>Welcome to Misconstrue!</h1>
+        <div id="title-container">
+            <h1 id="title">Misconstrue</h1>
+            <p id="title-desc">The Useless Chat App</p>
+        </div>
+        
 	    <form>
 	        <input type="text" name="name" autocomplete="off" placeholder="Enter your name here." /><br/>
 	        <input type="submit" value="Log in" />
@@ -22,25 +28,25 @@
 </template>
 
 <template name="selectPerson">
-	<div id="conversations">
-
-	</div>
 	<form>
         <input type="submit" value="New chat">
         <span class="text">Or select from chats below:</span>
 	</form>
+	
+    <div id="conversations"></div>
 </template>
 
-<template name="chat">
-	<div id="messages">
-
-	</div>
-	<div>
-		<form>
-	        <input type="text" name="chatMsg" autocomplete="off" placeholder="Enter your message here." /><br/>
-	        <input type="submit" value="Send" />
-	    </form>
-	</div>
+<template name="chat" style="width: 100%;">
+    <div id="chat-wrapper">
+        <div id="messages"></div>
+        
+        <div>
+            <form id="chat-form">
+                <input id="chatMsg" type="text" name="chatMsg" autocomplete="off" placeholder="Enter your message here." />
+                <input id="chatSubmit" type="submit" value="Send" />
+            </form>
+        </div>
+    </div>
 </template>
 
 <template name="error">

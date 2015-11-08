@@ -7,7 +7,7 @@ import com.ibm.watson.developer_cloud.language_translation.v2.LanguageTranslatio
 
 public class Translate {
 	private static final String ENGLISH_CODE = "en";
-	private static final String[] LANGUAGES = new String[] {"es", "ar", "fr", "es", "ar"};
+	private static final String[] LANGUAGES = new String[] {"es", "ar", "fr"/*, "es", "ar"*/};
 	
 	public static void main(String[] args) {
 		Translate trans = new Translate();
