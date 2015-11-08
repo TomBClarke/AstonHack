@@ -23,12 +23,12 @@ initialiseSocket = function() {
             } else if (message.image) {
                 $('#messages').append(
                     $('<div></div>')
-                        .attr('class', 'message-container text')
+                        .attr('class', 'imgchat text')
                         .append($('<div></div>')
                             .attr('class', 'message-sender')
                             .text(message.sender + ':'))
-                        .append($('<image></image>')
-                            .attr('class', 'message-sender')
+                        .append($('<img></img>')
+                            .attr('class', 'message-pic')
                             .attr('src', message.image))
                 );
             }
@@ -54,7 +54,11 @@ goToGroup = function(groupIndex) {
 }
 
 send = function(words) {
-    socket.send(words);
+    if(socket.readyState != 1) {
+        BlazeLayout.render( 'applicationLayout', { main: 'error' } );
+    } else {
+        socket.send(words);
+    }
 }
 
 close = function() {

@@ -76,7 +76,6 @@ input[type="submit"]:hover {
 #chatName {
     font-size: 200%;
     text-align: right;
-    
     color: #666;
 }
 
@@ -87,16 +86,13 @@ input[type="submit"]:hover {
     height: 90%;
     border: 1px solid black;
     border-radius: 3px;
-    
     text-align: left;
-    
     padding: 20px;
 }
 
 #chat-wrapper {
     height: 100%;
     max-width: 700px;
-    
     margin: 20px auto;
 }
 
@@ -106,6 +102,10 @@ html, body, #__blaze-root {
 
 #conversations {
     padding: 30px;
+}
+
+.imgchat {
+    text-align: center;
 }
 
 .conversation {
@@ -118,7 +118,7 @@ html, body, #__blaze-root {
 }
 
 .message-sender {
-    max-width: 600px;
+    text-align: left;
 }
 
 #blankWarning {
@@ -156,4 +156,17 @@ html, body, #__blaze-root {
 
 #credits a {
     color: #4285f4;
+}
+
+.message-pic {
+    max-width: 650px;
+    max-height: 400px;
+    border: 1px solid #4285f4;
+    border-radius: 5px;
+}
+
+@media (max-width: 1000px) {
+    .message-pic {
+        max-width: 95%;
+    }
 }
