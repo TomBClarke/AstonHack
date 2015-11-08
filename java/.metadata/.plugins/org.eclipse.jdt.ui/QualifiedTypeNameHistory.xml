@@ -9,4 +9,5 @@
 <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
 <fullyQualifiedTypeName name="org.eclipse.jetty.client.HttpSender"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="misconstrued.server.Conversation"/>
 </qualifiedTypeNameHistroy>

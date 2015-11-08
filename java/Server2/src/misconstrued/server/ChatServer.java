@@ -123,7 +123,6 @@ public class ChatServer extends WebSocketServer {
 			} else if (type.equals("groupset")) {
 				// Set the conversation
 				int newGroupIndex = json.getInt("newGroup");
-				
 				__logger.info("Changing group to #" + newGroupIndex);
 				conversations.get(newGroupIndex).addMember(connections.get(ws));
 			} else if (type.equals("groupnew")) {
@@ -159,7 +158,11 @@ public class ChatServer extends WebSocketServer {
 	 * @return
 	 */
 	private String getConversationsJSON() {
+<<<<<<< HEAD
 		String rawJSON = "{\"conversations\": [";
+=======
+		String rawJSON = "{\"conversations\":[";
+>>>>>>> something
 		
 		for (int i = 0; i < conversations.size(); i++) {
 			rawJSON += conversations.get(i).toString() + ((i == conversations.size() - 1) ? "" : ", ");
