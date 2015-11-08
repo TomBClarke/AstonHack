@@ -2,9 +2,7 @@ package misconstrued.server;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-import org.java_websocket.WebSocket;
 import org.java_websocket.exceptions.WebsocketNotConnectedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,10 +27,7 @@ public class Conversation {
 	 */
 	public void broadcast(String message) {
 		__logger.info("Broadcasting message");
-
-		// List containing what WS to remove
-		List<Member> toRemove = new ArrayList<Member>();
-
+		
 		// Loop through and broadcast to all connected
 		for (Member m : members) {
 			__logger.info("Broadcasting to " + m.getName());
@@ -40,7 +35,24 @@ public class Conversation {
 			try {
 				m.getWS().send(message);
 			} catch (WebsocketNotConnectedException e) {
-				__logger.warn("WebSocket not connected - adding to remove list");
+				__logger.warn("WebSocket not connected - should remove");
+			}
+		}
+	}
+
+	public boolean hasMember(Member m) {
+		return members.contains(m);
+	}
+	
+	public void clear() {
+		__logger.info("Clearing members");
+
+		// List containing what WS to remove
+		List<Member> toRemove = new ArrayList<Member>();
+
+		// Loop through and broadcast to all connected
+		for (Member m : members) {
+			if (m.getWS().isClosed()) {
 				toRemove.add(m);
 			}
 		}
@@ -49,10 +61,6 @@ public class Conversation {
 		for (Member m : toRemove) {
 			members.remove(m);
 		}
-	}
-
-	public boolean hasMember(Member m) {
-		return members.contains(m);
 	}
 
 	@Override
