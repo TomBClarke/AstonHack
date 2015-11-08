@@ -7,6 +7,8 @@ package misconstrued.server;
  *
  */
 public class Message {
+	private static final Translate translate = new Translate();
+	
 	/**
 	 * The text and sender of the message
 	 */
@@ -19,8 +21,7 @@ public class Message {
 	 *            Text of message
 	 */
 	public Message(String sender, String text) {
-		Translate translate = new Translate();
-		this.text = translate.translate(text);
+		this.text = translate.translateMultiple(text);
 		this.sender = sender;
 	}
 
