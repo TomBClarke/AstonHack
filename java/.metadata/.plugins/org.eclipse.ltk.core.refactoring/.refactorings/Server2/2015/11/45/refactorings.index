@@ -1,3 +1,6 @@
 1446926481747	Rename type 'Main'
 1446926551839	Rename type 'CharServer'
 1446936108657	Rename method 'getConversationsString'
+1446949109862	Rename method 'translate'
+1446949128676	Rename method 'getJSON'
+1446949141559	Rename local variable 'obj'
