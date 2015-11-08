@@ -34,9 +34,11 @@ if (Meteor.isClient) {
     //Reacts to the button press.
     'submit form': function(e) {
       //Stops form reloading the page.
+      console.log(e);
       e.preventDefault();
       //Gets the words the user entered.
       var words = event.target.chatMsg.value;
+      $('#chatMsg').val("");
       if (words == "") {
         alert("No text entered.");
       } else {

@@ -50,9 +50,7 @@ close = function() {
 
 showConversations = function(cs) {
     cs.forEach(function(c, ci) {
-        var members = c.members.map(function(d) { return d.name}).join(", ")
-        
-        console.log(members);
+        var members = c.members.map(function(d) { return d.name}).join(", ");
         
         $("#conversations").append(
             $("<div></div>")

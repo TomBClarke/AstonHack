@@ -45,13 +45,15 @@
                 <input id="chatMsg" type="text" name="chatMsg" autocomplete="off" placeholder="Enter your message here." />
                 <input id="chatSubmit" type="submit" value="Send" />
             </form>
+
+            <input id="picSubmit" type="file" value="Upload picture" onchange="uploadPicture();" />
         </div>
     </div>
 </template>
 
 <template name="error">
 	<div id="error">
-	 	<h1>Error - connection lost!</h1>
+	 	<h1 id="title">Error - connection lost!</h1>
 	 	<p class="text">The connection was unfortunately lost, please refresh and try again.</p>
 	 	<input type="submit" value="Reload" onclick="location.reload();" />
 	</div>
