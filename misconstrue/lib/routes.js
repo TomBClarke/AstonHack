@@ -1,20 +1,20 @@
-FlowRouter.route( '/login', {
+FlowRouter.route( '/', {
   action: function() {
   	BlazeLayout.render( 'applicationLayout', { main: 'login' } );
   },
   name: 'login'
 });
 
-FlowRouter.route( '/selectPerson', {
-  action: function() {
-  	BlazeLayout.render( 'applicationLayout', { main: 'selectPerson' } );
-  },
-  name: 'selectPerson'
-});
+// FlowRouter.route( '/selectPerson', {
+//   action: function() {
+//   	BlazeLayout.render( 'applicationLayout', { main: 'selectPerson' } );
+//   },
+//   name: 'selectPerson'
+// });
 
-FlowRouter.route( '/chat', {
-  action: function() {
-  	BlazeLayout.render( 'applicationLayout', { main: 'chat' } );
-  },
-  name: 'chat'
-});
+// FlowRouter.route( '/chat', {
+//   action: function() {
+//   	BlazeLayout.render( 'applicationLayout', { main: 'chat' } );
+//   },
+//   name: 'chat'
+// });
