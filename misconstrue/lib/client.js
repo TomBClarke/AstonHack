@@ -14,7 +14,7 @@ initialiseSocket = function() {
 
 		$("#messages").append(
             $("<div></div>")
-                .attr("class", "message-container")
+                .attr("class", "message-container text")
                 .append($("<div></div>")
                     .attr("class", "message-sender")
                     .text(message.sender + ' says: ' + message.text))
@@ -48,7 +48,7 @@ showConversations = function(cs) {
     cs.forEach(function(c, ci) {
         $("#conversations").append(
             $("<div></div>")
-                .attr('class', 'conversation')
+                .attr('class', 'text conversation')
                 .text(c.members.join(", "))
                 .on('click', function() { enterChatRoom(ci); })
         );

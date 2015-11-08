@@ -15,7 +15,7 @@
 	<div id="login">
 		<h1>Welcome to Misconstrue!</h1>
 	    <form>
-	        <input type="text" name="name" />
+	        <input type="text" name="name" autocomplete="off" placeholder="Enter your name here." /><br/>
 	        <input type="submit" value="Log in" />
 	    </form>
 	</div>
@@ -27,6 +27,7 @@
 	</div>
 	<form>
         <input type="submit" value="New chat">
+        <span class="text">Or select from chats below:</span>
 	</form>
 </template>
 
@@ -36,7 +37,7 @@
 	</div>
 	<div>
 		<form>
-	        <input type="text" name="chatMsg" />
+	        <input type="text" name="chatMsg" autocomplete="off" placeholder="Enter your message here." /><br/>
 	        <input type="submit" value="Send" />
 	    </form>
 	</div>
