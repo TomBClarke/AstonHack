@@ -931,3 +931,33 @@ java.lang.NullPointerException: null
 2015-11-08 01:58:59,997 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2015-11-08 01:58:59,998 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\wamp\www\AstonHack\java\Server2\src\test\resources
 2015-11-08 01:59:00,844 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is not out-of-date. No remote download required.
+2015-11-08 02:07:47,767 [Worker-19] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Server2:Server2:0.0.1-SNAPSHOT @ /home/misha/Documents/gitfiles/AstonHack/java/Server2/pom.xml.
+2015-11-08 02:07:48,670 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 02:07:48,671 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/misha/Documents/gitfiles/AstonHack/java/Server2/src/main/resources
+2015-11-08 02:07:48,675 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 02:07:48,676 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/misha/Documents/gitfiles/AstonHack/java/Server2/src/test/resources
+2015-11-08 02:08:07,774 [Worker-6] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2015-11-08 02:08:08,399 [Worker-6] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Server2:Server2:0.0.1-SNAPSHOT @ /home/misha/Documents/gitfiles/AstonHack/java/Server2/pom.xml.
+2015-11-08 02:08:08,640 [Worker-6] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Server2/src
+2015-11-08 02:08:08,642 [Worker-6] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Server2/src/test/java because it overlaps with /Server2/src
+2015-11-08 02:08:08,749 [Worker-6] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 0 sec
+2015-11-08 02:08:17,171 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 02:08:17,172 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/misha/Documents/gitfiles/AstonHack/java/Server2/src/main/resources
+2015-11-08 02:08:17,175 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 02:08:17,176 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/misha/Documents/gitfiles/AstonHack/java/Server2/src/test/resources
+2015-11-08 02:08:36,051 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 02:08:36,051 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/misha/Documents/gitfiles/AstonHack/java/Server2/src/main/resources
+2015-11-08 02:08:36,053 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 02:08:36,053 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/misha/Documents/gitfiles/AstonHack/java/Server2/src/test/resources
+2015-11-08 02:09:32,994 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 02:09:32,995 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/misha/Documents/gitfiles/AstonHack/java/Server2/src/main/resources
+2015-11-08 02:09:32,997 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 02:09:32,997 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/misha/Documents/gitfiles/AstonHack/java/Server2/src/test/resources
+2015-11-08 02:10:34,874 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 02:10:34,874 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/misha/Documents/gitfiles/AstonHack/java/Server2/src/main/resources
+2015-11-08 02:10:34,876 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 02:10:34,876 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/misha/Documents/gitfiles/AstonHack/java/Server2/src/test/resources
+2015-11-08 02:11:25,204 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 02:11:25,204 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/misha/Documents/gitfiles/AstonHack/java/Server2/src/main/resources
+2015-11-08 02:11:25,206 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-11-08 02:11:25,206 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/misha/Documents/gitfiles/AstonHack/java/Server2/src/test/resources

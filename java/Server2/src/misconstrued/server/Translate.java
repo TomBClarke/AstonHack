@@ -10,7 +10,7 @@ public class Translate {
 	
 	public static void main(String[] args) {
 		Translate trans = new Translate();
-		trans.translate("");
+		trans.translate("Haha chat delays you get me");
 	}
 	
 	public Translate() {
