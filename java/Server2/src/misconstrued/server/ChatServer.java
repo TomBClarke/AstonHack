@@ -5,10 +5,8 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 
 import org.java_websocket.WebSocket;
-import org.java_websocket.exceptions.WebsocketNotConnectedException;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 import org.json.JSONException;
@@ -55,6 +53,10 @@ public class ChatServer extends WebSocketServer {
 	@Override
 	public void onMessage(WebSocket ws, String message) {
 		__logger.info("Recieved message: {}", message);
+		
+		for (Conversation c : conversations) {
+			c.clear();
+		}
 		
 		Member member = connections.get(ws);
 		

@@ -2,12 +2,21 @@ body {
     margin: 0;
     padding: 0;
     border: 0;
+    
+    padding-top: 40px;
+    
     text-align: center;
     font-family: Arial, san-serif;
 }
 
 #title {
-    font-size: 400%;
+    font-size: 600%;
+    
+    text-transform: lowercase;
+    
+    border-bottom: 1px solid #888;
+    width: 40%;
+    margin: 0 auto;
     margin-top: 75px;
     margin-bottom: 10px;
 }
@@ -35,10 +44,8 @@ input[type="text"] {
     padding: 10px 25px 10px 25px;
     color: #4285f4;
     font-size: 2em;
-    box-shadow: 1px 1px 5px #B6B6B6;
     border: 1px solid #4285f4;
     border-radius: 3px;
-    text-shadow: 1px 1px 1px #4285f4;
     margin: 10px;
 }
 
@@ -49,14 +56,16 @@ input[type="submit"] {
     padding: 10px 25px 10px 25px;
     color: #FFF;
     font-size: 2em;
-    box-shadow: 1px 1px 5px #B6B6B6;
     border-radius: 3px;
-    text-shadow: 1px 1px 1px #4285f4;
     cursor: pointer;
 }
 
 input[type="submit"]:hover {
     background: #4285f4;
+}
+
+#chat-form {
+    margin-top: 20px;
 }
 
 #chat-form input, #chat-form div {
@@ -71,13 +80,17 @@ input[type="submit"]:hover {
     color: #666;
 }
 
-#chatMsg { width: 75%; }
+#chatMsg { width: 70%; }
 #chatSubmit { width: 20%; }
 
 #messages {
     height: 90%;
     border: 1px solid black;
     border-radius: 3px;
+    
+    text-align: left;
+    
+    padding: 20px;
 }
 
 #chat-wrapper {

@@ -17,7 +17,7 @@ initialiseSocket = function() {
                     .attr("class", "message-container text")
                     .append($("<div></div>")
                         .attr("class", "message-sender")
-                        .text(message.sender + ' says: ' + message.text))
+                        .text(message.sender + ': ' + message.text))
     		);
         }
 
